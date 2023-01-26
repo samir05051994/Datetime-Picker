@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DateTimePickerMaui.MainPage">
+
+    <StackLayout
+        Spacing="10"
+        VerticalOptions="FillAndExpand"
+        Padding="20">
+        <Label
+            Text="Heena"
+            FontSize="44"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Margin="0,10,0,0"/>
+        <Label
+            Text="Please subscribe my Channel."
+            FontSize="22"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,35"/>
+
+        <Label
+            Text="My Birthday!!!"
+            FontSize="22"
+            HorizontalOptions="Center"
+            x:Name="myBirthdate"/>
+
+        <Button
+            Style="{StaticResource BtnStyle}"
+            Text="Select BirthDay"
+            Clicked="OnClicked"
+            HorizontalOptions="FillAndExpand" 
+            Margin="20"/>
+
+        <Label
+            Text="Select Date With Time"
+            FontSize="22"
+            HorizontalOptions="Center"
+            x:Name="mydatetime"
+            Margin="0,25,0,0"/>
+
+        <Button
+            Style="{StaticResource BtnStyle}"
+            Text="Select Date With Time"
+            Clicked="Button_Clicked"
+            HorizontalOptions="FillAndExpand" 
+            Margin="20"/>
+
+    </StackLayout>
+
+</ContentPage>

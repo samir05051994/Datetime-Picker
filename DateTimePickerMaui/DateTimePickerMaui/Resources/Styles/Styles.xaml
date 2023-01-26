@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    
+    <Style x:Key="RootZeroGridStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="ColumnSpacing" Value="0"/>
+        <Setter Property="RowSpacing" Value="0"/>
+    </Style>
+
+    <Style x:Key="PrimaryLblStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="TextColor" Value="{StaticResource SecondaryColor}"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="17"/>
+    </Style>
+
+    <Style x:Key="PickerLineStyle" TargetType="Line">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="StrokeThickness" Value="{OnIdiom Phone=2,Tablet=4}"/>
+        <Setter Property="StrokeLineCap" Value="Round"/>
+        <Setter Property="X1" Value="0"/>
+        <Setter Property="Y1" Value="0"/>
+        <Setter Property="Y2" Value="0"/>
+        <Setter Property="Stroke" Value="{StaticResource AccentColor}"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"/>
+    </Style>
+
+    <Style  x:Key="RoundedBorderPopupStyle" TargetType="Border">
+        <Setter Property="VerticalOptions" Value="EndAndExpand"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="{OnIdiom Phone='20,20,0,0', Tablet='40,40,0,0'}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LoginStackStyle" TargetType="StackLayout">
+        <Setter Property="Spacing" Value="{OnIdiom Phone=20,Tablet=40}"/>
+        <Setter Property="Padding" Value="{OnIdiom Phone=20,Tablet=40}"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+    </Style>
+
+    <Style x:Key="BtnStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="TextColor" Value="{StaticResource SecondaryColor}"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="TextTransform" Value="None"/>
+        <Setter Property="CornerRadius" Value="{OnIdiom Phone=20,Tablet=40}"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="Padding" Value="{OnIdiom Phone=15,Tablet=30}"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush
+                    StartPoint="0,0"
+                    EndPoint="1,0">
+                    <GradientStop 
+                        Color="{StaticResource AccentColor}"
+                        Offset="0.1"/>
+                    <GradientStop 
+                        Color="{StaticResource AccentLightColor}"
+                        Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Shadow">
+            <Setter.Value>
+                <Shadow Brush="{StaticResource PrimaryBrush}" Opacity="0.5" Offset="{OnIdiom Phone='25,25',Tablet='50,50'}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

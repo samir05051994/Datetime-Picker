@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DateTimePickerMaui.PickerView"
+    Style="{StaticResource RootZeroGridStyle}"
+    RowSpacing="{OnIdiom Phone=5,Tablet=10}"
+    Padding="{OnIdiom Phone=5,Tablet=10}"
+    x:Name="pickerview">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <Label 
+        x:Name="lbl1"
+        Style="{StaticResource PrimaryLblStyle}" 
+        FontSize="{Binding Source={x:Reference pickerview},Path=FontSize}"
+        TextColor="{StaticResource SpanishGrayColor}"
+        Padding="{OnIdiom Phone=10, Tablet=20}"/>
+    <Line 
+        Grid.Row="1"
+        Style="{StaticResource PickerLineStyle}"/>
+    <Label 
+        Grid.Row="2"
+        x:Name="lbl2"
+        Text="{Binding Source={x:Reference pickerview},Path=SelectedValue,Mode=TwoWay}"
+        Style="{StaticResource PrimaryLblStyle}" 
+        FontSize="{Binding Source={x:Reference pickerview},Path=FontSize}"
+        Padding="{OnIdiom Phone=10, Tablet=20}"/>
+    <Line 
+        Grid.Row="3"
+        Style="{StaticResource PickerLineStyle}"/>
+    <Label 
+        Grid.Row="4"
+        x:Name="lbl3"
+        Style="{StaticResource PrimaryLblStyle}" 
+        FontSize="{Binding Source={x:Reference pickerview},Path=FontSize}"
+        TextColor="{StaticResource SpanishGrayColor}"
+        Padding="{OnIdiom Phone=10, Tablet=20}"/>
+
+    <Grid.GestureRecognizers>
+        <SwipeGestureRecognizer  Direction="Up" Swiped="SwipeUp"/>
+        <SwipeGestureRecognizer  Direction="Down" Swiped="SwipeDown"  />
+    </Grid.GestureRecognizers>
+    
+</Grid>

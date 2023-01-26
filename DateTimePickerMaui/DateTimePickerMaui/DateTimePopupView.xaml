@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DateTimePickerMaui.DateTimePopupView"
+    xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:LayoutComponentViews="clr-namespace:DateTimePickerMaui"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    BackgroundColor="#80000000"
+    CloseWhenBackgroundIsClicked="False"
+    x:Name="datetimepopupview">
+
+    <!--#region Animation-->
+    <mopups:PopupPage.Animation>
+        <animations:MoveAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Bottom"
+            PositionOut="Bottom"/>
+    </mopups:PopupPage.Animation>
+    <!--#endregion Animation-->
+
+    <!--#region PopupContent-->
+    <Grid 
+        Style="{StaticResource RootZeroGridStyle}"
+        VerticalOptions="EndAndExpand">
+        <Border Style="{StaticResource RoundedBorderPopupStyle}">
+            <StackLayout Style="{StaticResource LoginStackStyle}">
+                <Label 
+                    Style="{StaticResource PrimaryLblStyle}"
+                    HorizontalOptions="Start"
+                    FontSize="44"
+                    Text="x">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="No_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label 
+                    HorizontalOptions="StartAndExpand"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource PrimaryLblStyle}"
+                    Text="SELECT YOUR DATETIME"/>
+                <LayoutComponentViews:DateTimePickerView
+                    x:Name="DateTimePicker"
+                    IsTimeVisible="{Binding Source={x:Reference datetimepopupview},Path=IsTimeVisible}"
+                    Padding="{OnIdiom Phone='0,50',Tablet='0,100'}"/>
+                <Button 
+                    Style="{StaticResource BtnStyle}"
+                    Text="DONE!"
+                    Clicked="Yes_Tapped"/>
+            </StackLayout>
+        </Border>
+    </Grid>
+    <!--#endregion PopupContent-->
+    
+</mopups:PopupPage>

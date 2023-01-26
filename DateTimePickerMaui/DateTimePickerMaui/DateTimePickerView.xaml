@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DateTimePickerMaui.DateTimePickerView"
+    Style="{StaticResource RootZeroGridStyle}"
+    xmlns:LayoutComponentViews="clr-namespace:DateTimePickerMaui"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    x:Name="datetimepickerview">
+   
+     <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+
+    <LayoutComponentViews:PickerView
+        HorizontalOptions="FillAndExpand"
+        x:Name="MonthPicker"
+        SelectedValue="{Binding Source={x:Reference datetimepickerview},Path=SelectedMonth,Mode=TwoWay}"
+        PickerList="{Binding Source={x:Reference datetimepickerview},Path=MonthPickerList}">
+        <LayoutComponentViews:PickerView.Triggers>
+            <Trigger 
+                TargetType="LayoutComponentViews:PickerView"
+                Property="IsVisible" 
+                Value="False">
+                <Setter 
+                    Property="HorizontalOptions" 
+                    Value="Fill"/>
+            </Trigger>
+        </LayoutComponentViews:PickerView.Triggers>
+    </LayoutComponentViews:PickerView>
+
+    <LayoutComponentViews:PickerView 
+        Grid.Column="1"
+        x:Name="DayPicker"
+        HorizontalOptions="FillAndExpand"
+        SelectedValue="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:dd}'}"
+        PickerList="{Binding Source={x:Reference datetimepickerview},Path=DayPickerList}">
+        <LayoutComponentViews:PickerView.Triggers>
+            <Trigger 
+                TargetType="LayoutComponentViews:PickerView"
+                Property="IsVisible" 
+                Value="False">
+                <Setter
+                    Property="HorizontalOptions" 
+                    Value="Fill"/>
+            </Trigger>
+        </LayoutComponentViews:PickerView.Triggers>
+    </LayoutComponentViews:PickerView>
+
+    <LayoutComponentViews:PickerView
+        Grid.Column="2"
+        x:Name="YearPicker"
+        HorizontalOptions="FillAndExpand"
+        SelectedValue="{Binding Source={x:Reference datetimepickerview},Path=SelectedYear,Mode=TwoWay}"
+        PickerList="{Binding Source={x:Reference datetimepickerview},Path=YearPickerList}">
+        <LayoutComponentViews:PickerView.Triggers>
+            <Trigger 
+                TargetType="LayoutComponentViews:PickerView"
+                Property="IsVisible" 
+                Value="False">
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Fill"/>
+            </Trigger>
+        </LayoutComponentViews:PickerView.Triggers>
+    </LayoutComponentViews:PickerView>
+
+    <Label 
+        Grid.Column="3"
+        Padding="{OnIdiom Phone='10,0',Tablet='20,0'}"
+        IsVisible="{Binding Source={x:Reference datetimepickerview},Path=IsTimeVisible}"/>
+
+    <LayoutComponentViews:PickerView 
+        Grid.Column="4"
+        x:Name="HourPicker"
+        HorizontalOptions="FillAndExpand"
+        SelectedValue="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:HH}'}"
+        PickerList="{Binding Source={x:Reference datetimepickerview},Path=HourPickerList}"
+        IsVisible="{Binding Source={x:Reference datetimepickerview},Path=IsTimeVisible}">
+        <LayoutComponentViews:PickerView.Triggers>
+            <Trigger 
+                TargetType="LayoutComponentViews:PickerView"
+                Property="IsVisible" 
+                Value="False">
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Fill"/>
+            </Trigger>
+        </LayoutComponentViews:PickerView.Triggers>
+    </LayoutComponentViews:PickerView>
+
+    <Label 
+        Grid.Column="5"
+        Style="{StaticResource PrimaryLblStyle}" 
+        Text=":"
+        IsVisible="{Binding Source={x:Reference datetimepickerview},Path=IsTimeVisible}"/>
+
+    <LayoutComponentViews:PickerView
+        Grid.Column="6"
+        x:Name="MinutePicker"
+        HorizontalOptions="FillAndExpand"
+        SelectedValue="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:mm}'}"
+        PickerList="{Binding Source={x:Reference datetimepickerview},Path=MinPickerList}"
+        IsVisible="{Binding Source={x:Reference datetimepickerview},Path=IsTimeVisible}">
+        <LayoutComponentViews:PickerView.Triggers>
+            <Trigger 
+                TargetType="LayoutComponentViews:PickerView"
+                Property="IsVisible" 
+                Value="False">
+                <Setter 
+                    Property="HorizontalOptions" 
+                    Value="Fill"/>
+            </Trigger>
+        </LayoutComponentViews:PickerView.Triggers>
+    </LayoutComponentViews:PickerView>
+</Grid>
